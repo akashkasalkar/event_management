@@ -103,7 +103,7 @@
 											<input type="password" name="confirm_pass" id="confirm_pass" required="">
 										</div>
 										<div class="input-field">
-											<button class="btn waves-effect waves-light green">Change Password</button>
+											<button class="btn waves-effect waves-light green" name="change">Change Password</button>
 										</div>
 									</form>
 								</p>

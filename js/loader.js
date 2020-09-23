@@ -3,7 +3,7 @@ $(document).ready(function(){
 	$('select').formSelect();
 	 $('.parallax').parallax();
 	 $('.sidenav').sidenav();
-	 $(".slider").slider({full_widt:true});
+	 $(".slider").slider({height:500});
 	 $(".myreviews").carousel({
 		 numVisible:7,
 		 shift:55,

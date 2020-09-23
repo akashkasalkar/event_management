@@ -8,10 +8,11 @@
 ?>
 	<title>Royal Wedding</title>
 	<!-- font -->
-	<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+
 	
 
 	<!-- icon -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -22,6 +23,43 @@
 
     <!-- custome css -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
+     <style>
+		.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border: solid 1px black;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px black;
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+  background: #f5f6f8;
+  color: #3B5998;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+	</style>
     
 </head>
 
@@ -73,6 +111,10 @@
 									 	</div> 
 										<div class="input-field">
 											<button class="btn waves-effect waves-light green" name="login">Login</button>
+											
+										</div>
+										<div class="form-group">
+											<a href="forgotPass.php" class="">Forgot Password</a>
 										</div>
 									</form>
 								</p>
@@ -263,17 +305,20 @@ The process of planning and coordinating the event is usually referred to as eve
 					<div class="col l6 s12">
 						<h4 class="white-text">Contact Us</h4>
 						<p class="white-text">
-							ABC 507,belgaum,India
+							Abhishek Gavde
 						</p>
 						<p class="white-text">
-							+919742523626
+							+91 8792716396
 						</p>
+						
 					</div>
 					<div class="col l6 s12">
 						<h4 class="white-text">Social Media</h4>
-						<ul><a href="#" class="white-text">Facebook</a></ul>
-						<ul><a href="#" class="white-text">Instagram</a></ul>
-						<ul><a href="#" class="white-text">Twitter</a></ul>
+						<a href="#" class="fa fa-facebook"></a>
+							<a href="#" class="fa fa-twitter"></a>
+							<a href="#" class="fa fa-linkedin"></a>
+							<a href="#" class="fa fa-youtube" target="_blank"></a>
+							<a href="#" class="fa fa-instagram"></a>
 					</div>
 				</div>
 				

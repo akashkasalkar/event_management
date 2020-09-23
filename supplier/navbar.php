@@ -3,6 +3,13 @@
     if (!isset($_SESSION['sup_email'])) {
         header("location:../index.php");
     }
+    include "include/dbconn.php";
+     $email=$_SESSION['sup_email'];
+  $qry="select sup_name from supplier where email='$email'";
+  $exc=mysqli_query($conn,$qry);
+  while ($row=mysqli_fetch_array($exc)) {
+     $name=$row['sup_name'];
+  }
  ?>
 <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
 	
@@ -23,7 +30,7 @@
       <a href="#!" class="brand-logo"><img src="img/logo.jpeg"  height="60" width="300" style="padding: 5px"></a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>  <marquee><h5 class="red-text">Welcome <?php echo $_SESSION['sup_email']; ?></h5></marquee></li>
+        <li>  <marquee><h5 class="red-text">Welcome <?php echo $name; ?></h5></marquee></li>
         <li><a href="about.php">My Profile</a></li>
 	    <li><a href="add_product.php">Add Product</a></li>
       <li><a href="view_product.php">View Product</a></li>

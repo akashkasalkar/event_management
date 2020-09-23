@@ -18,7 +18,9 @@
           //echo "$event_date"; 
 					$qry="select * from category";
 					$exc=mysqli_query($conn,$qry);
+
 					while ($row=mysqli_fetch_array($exc)) {
+            
 						?>
 					<div class="col-l12 s12 m12">
 
@@ -57,7 +59,9 @@
                                   <input type="text" value="<?php echo $row2['product_name']; ?>" name="product_name" hidden>
                                 </th>
         				  							<th><img src="../supplier/<?php echo $row2['photo']; ?>" height=100 width=100></th>
-        				  							<th><?php echo $row2['stock']; ?> </th>
+        				  							<th><?php echo $row2['stock']; ?> 
+                                  <input type="text" name="stock" value="<?php echo $row2['stock']; ?>" hidden>
+                              </th>
         				  							<th><?php echo $row2['price']; ?><input type="text" name="price" value="<?php echo $row2['price']; ?>" hidden></th>
         				  							<th><input type="number" name="qty" placeholder="1,2"></th>
         				  							<th><button name="add">Add</button></th>
@@ -95,13 +99,19 @@
                     $supplier=$_POST['supplier'];
                     $price=$_POST['price'];
                     $qty=$_POST['qty'];
+                    $stock=$_POST['stock'];
+
+                    if ($qty>$stock) {
+                      echo "<script>alert('Choose correct quantity..')</script>";
+                      exit();
+                    }
                     $mul_price=$price*$qty;
 
 
 
 
 
-                    $product="SELECT * FROM `cart` WHERE `supplier`='$supplier' AND event_date='$event_date' AND product_name='$product_name'";
+                    $product="SELECT * FROM `cart` WHERE `supplier`='$supplier' AND event_date='$event_date' AND product_name='$product_name' AND cart_status='2'";
                    $helo=mysqli_query($conn,$product);
                    $count=mysqli_affected_rows($conn);
                    

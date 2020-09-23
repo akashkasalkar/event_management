@@ -35,8 +35,8 @@
                      <!-- form -->
                       <?php
 
-                        $name=$_GET['sup_name'];
-                        $qry="select * from supplier where sup_name='$name'";
+                        $email=$_GET['email'];
+                        $qry="select * from supplier where email='$email'";
                         $exc=mysqli_query($conn,$qry);
                         while($row=mysqli_fetch_array($exc)){
 
@@ -47,7 +47,7 @@
                         <div class="col-lg-12 col-sm-12">
                           <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" name="email" value="<?php echo $row['email']; ?>" required="" >
+                            <input type="email" class="form-control" name="email" value="<?php echo $row['email']; ?>" required="" disabled>
                           </div>
                           <div class="form-group">
                             <label>Name</label>
@@ -79,13 +79,13 @@
 <!-- /Main -->
   <?php 
             if (isset($_POST['submit'])) {
-              $email=$_POST['email'];
+              $email=$_GET['email'];
               $name=$_POST['sup_name'];
               $phone=$_POST['phone'];
               $category=$_POST['cat_name'];
 
                 
-                  $qry=" UPDATE `supplier` SET `email`='$email',`sup_phone`='$phone',`sup_category`='$category' WHERE `sup_name`='$name'";
+                  $qry=" UPDATE `supplier` SET `sup_name`='$name',`sup_phone`='$phone',`sup_category`='$category' WHERE `email`='$email'";
                   $exe=mysqli_query($conn,$qry);
                   if ($exe==true) {
                   echo "<script>alert('Data update');

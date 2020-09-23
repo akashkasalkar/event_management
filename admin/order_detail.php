@@ -59,8 +59,8 @@
 										?>
 
 											<tr>
-												<?php $order_id=$row['cid']; ?>
-												<input type="text" name="cart_id" value="<?php echo $order_id ?>" hidden>
+												<?php $cart_id=$row['cid']; ?>
+												<input type="text" name="cart_id" value="<?php echo $cart_id ?>" hidden>
 
 												<td><?php echo $row['supplier']; ?></td>
 												<td><?php echo $row['product_name']; ?></td>
@@ -97,7 +97,7 @@
 									 $order_id=$_GET['order_id'];
 									 $status=1;
 									 $cart_id=$_POST['cart_id'];
-									 $cart_qry="update cart set cart_status='1' where user_email='$user_email' AND event_date='$event_date'";
+									 $cart_qry="update cart set cart_status='1' where user_email='$user_email' AND event_date='$event_date' AND cid='$cart_id'";
 									 $cart_exc=mysqli_query($conn,$cart_qry);
 
 
@@ -116,7 +116,7 @@
 									$order_id=$_GET['order_id'];
 									 $status=0;
 									echo  $cart_id=$_POST['cart_id'];
-									 $cart_qry="update cart set cart_status='0' where user_email='$user_email' AND event_date='$event_date'";
+									 $cart_qry="update cart set cart_status='0' where user_email='$user_email' AND event_date='$event_date' AND cid='$cart_id'";
 									 $cart_exc=mysqli_query($conn,$cart_qry);
 
 									$qry="update place_order set order_status='$status' where order_id='$order_id'";

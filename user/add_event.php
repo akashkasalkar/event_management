@@ -18,7 +18,7 @@
 						  
 							<div class="input-field">
 								Select Your Event Date:
-								<input type="date" name="event_date" id="event_date" required="">
+								<input type="date" name="event_date" id="event_date" required="" min="<?php echo date('Y-m-d'); ?>">
 							</div>
 							
 							<div class="input-field">
@@ -34,17 +34,35 @@
 					$event_name="marrige";
 					$event_date=$_POST['event_date'];
 					$user_email=$_SESSION['user_email'];
-
 					$x=rand(1,100);
 					$event_id=$event_name.$x;
 
-					$qry="INSERT INTO `event_reg`(`event_id`, `event_name`, `date`, `user_email`,`event_status`) VALUES('$event_id','$event_name','$event_date','$user_email','0')";
+
+
+
+
+
+
+
+
+					 $event="SELECT * FROM event_reg where user_email='$user_email' AND `date`='$event_date'";
+                   $helo=mysqli_query($conn,$event);
+                   $count=mysqli_affected_rows($conn);
+                   
+                  if($count>=1){
+                  echo "<script>alert('You Already Selected this date..'); </script>";
+                   }else
+                   {
+                   		$qry="INSERT INTO `event_reg`(`event_id`, `event_name`, `date`, `user_email`,`event_status`) VALUES('$event_id','$event_name','$event_date','$user_email','0')";
 					$exc=mysqli_query($conn,$qry);
 					if ($exc) {
 						echo "<p>Event Added</p>";
 						//echo "<script>window.location='add_order.php';</script>";
 					}
 
+                   }
+
+					
 				}
 
 			 ?>
@@ -59,6 +77,8 @@
 					</tr>
 					<?php 
 					$email=$_SESSION['user_email'];
+
+
 						$qry="Select * from event_reg where user_email='$email' and event_status='0'";
 						$exc=mysqli_query($conn,$qry);
 						while ($row=mysqli_fetch_array($exc)) {

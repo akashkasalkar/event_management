@@ -5,7 +5,7 @@ $time =date("h:i");
 include("include/dbconn.php");   
 ?>
 <meta charset="utf-8"> 
-    <title>BandBajaBarath</title>
+    <title>Royal Wedding</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">

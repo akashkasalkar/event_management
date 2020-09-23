@@ -1,3 +1,4 @@
+
   $(document).ready(function(){
     $('select').formSelect();
      $('.sidenav').sidenav();
@@ -5,10 +6,6 @@
      $('.modal').modal();
   });
 function toggleModal(){
-	var instance=M.Modal.getInstance($('#modal3'));
-	instance.open();
-}
-function cust_reg(){
-	var instance=M.Modal.getInstance($('#cust_reg'));
-	instance.open();
+  var instance=M.Modal.getInstance($('#modal3'));
+  instance.open();
 }

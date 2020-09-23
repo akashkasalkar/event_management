@@ -3,6 +3,13 @@
     if (!isset($_SESSION['user_email'])) {
         header("location:../index.php");
     }
+    include "include/dbconn.php";
+    $email=$_SESSION['user_email'];
+  $qry="select name from user where email='$email'";
+  $exc=mysqli_query($conn,$qry);
+  while ($row=mysqli_fetch_array($exc)) {
+     $name=$row['name'];
+  }
  ?>
 <link href="https://fonts.googleapis.com/css2?family=Girassol&display=swap" rel="stylesheet">
 	
@@ -24,7 +31,7 @@
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>  <marquee><h5 class="red-text">Welcome <?php echo $_SESSION['user_email']; ?></h5></marquee></li>
+      <li>  <marquee><h5 class="red-text">Welcome <?php echo $name; ?></h5></marquee></li>
         <li><a href="about.php">My Profile</a></li>
 	      <li><a href="add_event.php">Add Event</a></li>
         <li><a href="confirm_order.php">Confirm Orders</a></li>

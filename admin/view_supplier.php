@@ -61,8 +61,8 @@
                           <td><?php echo $name=$row['sup_name']; ?></td>
                           <td><?php echo $phone=$row['sup_phone']; ?></td>
                           <td><?php echo $category=$row['sup_category']; ?></td>
-                          <td><a href="update_supplier.php?sup_name=<?php echo $name ?>">View</a></td>
-                          <td><a href="delete_supplier.php?sup_name=<?php echo $name; ?>" class="" data-toggle="tooltip" title="Delete" onclick="return confirm('do you want to delete...?');"><i class='fas fa-trash' style='font-size:24px;color:red'></i></a></td>
+                          <td><a href="update_supplier.php?email=<?php echo $email ?>">View</a></td>
+                          <td><a href="delete_supplier.php?sup_name=<?php echo $email; ?>" class="" data-toggle="tooltip" title="Delete" onclick="return confirm('do you want to delete...?');"><i class='fas fa-trash' style='font-size:24px;color:red'></i></a></td>
 
                         </tr>
                        <?php } ?>
